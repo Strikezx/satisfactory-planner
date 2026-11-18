@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Satisfactory Build Planner</title>
+<meta name="description" content="A free production planner for Satisfactory: ratios, machine counts, clock speeds, belt and pipe tiers, power, splits and logistics.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%2315171a'/%3E%3Crect x='4' y='4' width='24' height='24' rx='3' fill='none' stroke='%23f2994a' stroke-width='3'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='800' font-size='12' text-anchor='middle' fill='%23f2994a'%3ESB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>
+/* Dark is the default. A saved choice (sbp_theme) wins. Set before first paint so there is no flash. */
+(function(){ var t = 'dark'; try { var s = String(localStorage.getItem('sbp_theme')).replace(/"/g, ''); if (s === 'light' || s === 'dark') t = s; } catch(e){} document.documentElement.setAttribute('data-theme', t); })();
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="mark">SB</span>Satisfactory Build Planner</div>
+      <label class="worldpick" for="worldSel">World <select id="worldSel"></select></label>
+      <span id="dataChip" class="datachip"></span>
+      <button type="button" class="btn small ghost tipsbtn" id="themeBtn" aria-label="Switch between dark and light mode">Light mode</button>
+      <button type="button" class="btn small ghost tipsbtn" id="tourBtn" aria-label="Show tips for this tab">? Tips</button>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#plan" data-tab="plan">Plan</a>
+      <a href="#recipes" data-tab="recipes">Recipes</a>
+      <a href="#node" data-tab="node">From a node</a>
+      <a href="#power" data-tab="power">Power</a>
+      <a href="#transport" data-tab="transport">Transport</a>
+      <a href="#splits" data-tab="splits">Splits</a>
+      <a href="#factories" data-tab="factories">My factories</a>
+      <a href="#world" data-tab="world">World &amp; data</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main"><noscript><div class="notice bad">This planner needs JavaScript. Turn it on for this page and reload.</div></noscript></main>
+<datalist id="itemList"></datalist>
+<div id="toast" class="toast" hidden></div>
+
+<!-- Solver (linear programming) from a CDN. app.js shows a clear message if this fails to load. -->
+<script src="https://cdn.jsdelivr.net/npm/javascript-lp-solver@0.4.24/prod/solver.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/data.js"></script>
+<script src="js/backup.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
