@@ -8,10 +8,11 @@ Running list of ideas and requests. Feature notes from friends come in through S
 - [x] Export / Import backup file, and share links for one world.
 - [x] Dark / light mode button (dark by default, choice remembered).
 - [x] CSV download of the materials sheet works on any browser.
+- [x] Moving data out of the old artifact: the artifact now has an Export backup button, and its file imports straight into the website (confirmed by Scott).
+- [x] Site is live on GitHub Pages: https://strikezx.github.io/satisfactory-planner
 
 ## Requests and ideas
 <!-- Add new items here, newest last. Format: - [ ] Short description (who asked) -->
 
 ## To discuss
-- [ ] Moving data out of the old artifact: the old artifact keeps its data in a Claude account store, so it can't be read from this site. It would need its own Export button (or a one-off console snippet) to produce a file that Import here can read. Import already accepts the `sbp_state` / `sbp_factories` shapes.
 - [ ] "Floor Plan Lab" (stacking a factory across floors, with a flow-by-floor chart, side view and floor plans): merge in only when Scott asks.
